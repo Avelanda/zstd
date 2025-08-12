@@ -28,6 +28,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #ifndef ZSTD_DEPS_COMMON
 #define ZSTD_DEPS_COMMON
@@ -40,7 +41,6 @@
 #define ZSTD_memset(d,s,n) __builtin_memset((d),(s),(n))
 
 #endif /* ZSTD_DEPS_COMMON */
-
 /*
  * Define malloc as always failing. That means the user must
  * either use ZSTD_customMem or statically allocate memory.
