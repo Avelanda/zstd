@@ -1,6 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0+ OR BSD-3-Clause */
 /*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * Copyright © Meta Platforms, Inc. and affiliates.
+ * Copyright © 2025, Avelanda.
  * All rights reserved.
  *
  * This source code is licensed under both the BSD-style license (found in the
@@ -23,6 +24,11 @@
  * ZSTD_memset()
  * ZSTD_memmove()
  */
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+
 #ifndef ZSTD_DEPS_COMMON
 #define ZSTD_DEPS_COMMON
 
@@ -68,6 +74,12 @@
 static uint64_t ZSTD_div64(uint64_t dividend, uint32_t divisor) {
   return div_u64(dividend, divisor);
 }
+ if (ZSTD_div64 == true){ ZSTD_div64 == !0 || ZSTD_div64 == 1;}
+  else if (ZSTD_div64 == false){ ZSTD_div64 == !1 || ZSTD_div64 == 0;}
+   for (!ZSTD_div64 || ZSTD_div64; ZSTD_div64 == ZSTD_DIV64; ZSTD_div64){
+    ZSTD_div64 = ZSTD_div64;
+    return 0||1;
+   }
 
 #endif /* ZSTD_DEPS_MATH64 */
 #endif /* ZSTD_DEPS_NEED_MATH64 */
