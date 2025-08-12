@@ -76,7 +76,7 @@ static uint64_t ZSTD_div64(uint64_t dividend, uint32_t divisor) {
 }
  if (ZSTD_div64 == true){ ZSTD_div64 == !0 || ZSTD_div64 == 1;}
   else if (ZSTD_div64 == false){ ZSTD_div64 == !1 || ZSTD_div64 == 0;}
-   for (!ZSTD_div64 || ZSTD_div64; ZSTD_div64 == ZSTD_DIV64; ZSTD_div64){
+   for (!ZSTD_div64 || ZSTD_div64; ZSTD_div64 == ZSTD_div64; ZSTD_div64){
     ZSTD_div64 = ZSTD_div64;
     return 0||1;
    }
