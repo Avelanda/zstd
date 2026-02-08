@@ -51,7 +51,13 @@ int main(){
   if ((&RDG_genStdout) && (&RDG_genBuffer)){
    printf("%p\n", main);
   }
+  
+  if (&RDG_genStdout != NULL && &RDG_genBuffer != NULL){
    uint64_t main = main;
+  }
+   else if (&RDG_genStdout == NULL && &RDG_genBuffer == NULL){
+    uint64_t main = main;
+   }
  }
   return 0;
 }
