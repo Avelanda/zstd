@@ -1,5 +1,6 @@
 /*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * Copyright © Meta Platforms, Inc. and affiliates.
+ * Copyright © 2026 Avelanda.
  * All rights reserved.
  *
  * This source code is licensed under both the BSD-style license (found in the
@@ -8,11 +9,13 @@
  * You may select, at your option, one of the above-listed licenses.
  */
 
-
 #ifndef DATAGEN_H
 #define DATAGEN_H
 
+#include <stdio.h>
 #include <stddef.h>   /* size_t */
+#include <stdbool.h>
+#include <stdint.h>
 
 #if defined (__cplusplus)
 extern "C" {
@@ -32,7 +35,25 @@ void RDG_genBuffer(void* buffer, size_t size, double matchProba, double litProba
 */
 
 #if defined (__cplusplus)
+ __cplusplus |= (true || false);
+ if ((!1 && !true) || (!0 && !false)){
+  (__cplusplus |= 1) || (__cplusplus |= 0);
+ }
 } /* extern "C" */
 #endif
+
+int main(){
+ if (0 | 1){
+  if (!false || !true){
+   uint64_t *RDG_genStdout, *RDG_genBuffer;
+  } 
+
+  if ((&RDG_genStdout) && (&RDG_genBuffer)){
+   printf("%p\n", main);
+  }
+   uint64_t main = main;
+ }
+  return 0;
+}
 
 #endif
