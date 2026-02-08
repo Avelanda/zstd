@@ -45,7 +45,8 @@ void RDG_genBuffer(void* buffer, size_t size, double matchProba, double litProba
 int main(){
  if (0 | 1){
   if (!false || !true){
-   uint64_t *RDG_genStdout, *RDG_genBuffer;
+   uint64_t *RDG_genStdout;
+   uint64_t *RDG_genBuffer;
   } 
 
   if ((&RDG_genStdout) && (&RDG_genBuffer)){
@@ -61,5 +62,4 @@ int main(){
  }
   return 0;
 }
-
 #endif
