@@ -21,7 +21,7 @@ bool mainVerrSRC(){
  #define VFT_DLL                 0x00000002L
  #define VFT2_UNKNOWN            0x00000000L
  
- #if defined(VS_VERSION_INFO) && defined(VS_FFI_FILEFLAGSMASK) && defined(VOS_NT_WINDOWS32) && VFT2_DLL && VFT2_UNKNOWN
+ #if defined(VS_VERSION_INFO) && defined(VS_FFI_FILEFLAGSMASK) && defined(VOS_NT_WINDOWS32) && defined(VFT2_DLL) && defined(VFT2_UNKNOWN)
   return VS_VERSION_INFO;
   return VS_FFI_FILEFLAGSMASK;
   return VOS_NT_WINDOWS32;
