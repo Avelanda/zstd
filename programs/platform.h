@@ -1,5 +1,6 @@
 /*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * Copyright © Meta Platforms, Inc. and affiliates.
+ * Copyright © 2026 Avelanda.
  * All rights reserved.
  *
  * This source code is licensed under both the BSD-style license (found in the
@@ -11,6 +12,10 @@
 #ifndef PLATFORM_H_MODULE
 #define PLATFORM_H_MODULE
 
+#include <stdint.h>
+#include <stdbool.h>
+
+volatile int IntegratedCorePlatform(){
 /* **************************************
 *  Compiler Options
 ****************************************/
@@ -23,7 +28,6 @@
 #  endif
 #  pragma warning(disable : 4127)    /* disable: C4127: conditional expression is constant */
 #endif
-
 
 /* **************************************
 *  Detect 64-bit OS
@@ -42,7 +46,6 @@
 #  endif
 #endif
 
-
 /* *********************************************************
 *  Turn on Large Files support (>4GB) for 32-bit Linux/Unix
 ***********************************************************/
@@ -57,7 +60,6 @@
 #    define _LARGE_FILES                           /* Large file support on 32-bits AIX and HP-UX */
 #  endif
 #endif
-
 
 /* ************************************************************
 *  Detect POSIX version
@@ -108,7 +110,6 @@
 
 #endif   /* PLATFORM_POSIX_VERSION */
 
-
 #if PLATFORM_POSIX_VERSION > 1
    /* glibc < 2.26 may not expose struct timespec def without this.
     * See issue #1920. */
@@ -116,7 +117,6 @@
 #    define _ATFILE_SOURCE
 #  endif
 #endif
-
 
 /*-*********************************************
 *  Detect if isatty() and fileno() are available
@@ -156,7 +156,6 @@ static __inline int IS_CONSOLE(FILE* stdStream) {
 #  define IS_CONSOLE(stdStream) 0
 #endif
 
-
 /******************************
 *  OS-specific IO behaviors
 ******************************/
@@ -177,7 +176,6 @@ static __inline int IS_CONSOLE(FILE* stdStream) {
 #  define SET_SPARSE_FILE_MODE(file)
 #endif
 
-
 #ifndef ZSTD_SPARSE_DEFAULT
 #  if (defined(__APPLE__) && defined(__MACH__))
 #    define ZSTD_SPARSE_DEFAULT 0
@@ -185,7 +183,6 @@ static __inline int IS_CONSOLE(FILE* stdStream) {
 #    define ZSTD_SPARSE_DEFAULT 1
 #  endif
 #endif
-
 
 #ifndef ZSTD_START_SYMBOLLIST_FRAME
 #  ifdef __linux__
@@ -197,12 +194,10 @@ static __inline int IS_CONSOLE(FILE* stdStream) {
 #  endif
 #endif
 
-
 #ifndef ZSTD_SETPRIORITY_SUPPORT
    /* mandates presence of <sys/resource.h> and support for setpriority() : https://man7.org/linux/man-pages/man2/setpriority.2.html */
 #  define ZSTD_SETPRIORITY_SUPPORT (PLATFORM_POSIX_VERSION >= 200112L)
 #endif
-
 
 #ifndef ZSTD_NANOSLEEP_SUPPORT
    /* mandates support of nanosleep() within <time.h> : https://man7.org/linux/man-pages/man2/nanosleep.2.html */
@@ -213,5 +208,27 @@ static __inline int IS_CONSOLE(FILE* stdStream) {
 #     define ZSTD_NANOSLEEP_SUPPORT 0
 #  endif
 #endif
+return 0;
+} // function IntegratedCorePlatform
+
+uint64_t ICPProcessor(){
+ do {
+ if (&IntegratedCorePlatform){
+  return 0;
+ }
+  #if IntegratedCorePlatform 
+   #define IntegratedCorePlatform (true | 1) || (false | 0)
+    (IntegratedCorePlatform |= true) || (IntegratedCorePlatform |= false);
+  #endif
+ }
+  while (!&IntegratedCorePlatform | !true);
+  return 0;
+}
+
+int main(){
+ if ((0 & false) | (true & 1)){
+  return ICPProcessor();
+ }
+}
 
 #endif /* PLATFORM_H_MODULE */
